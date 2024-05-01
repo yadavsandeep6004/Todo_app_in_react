@@ -1,8 +1,8 @@
 import "./styles.css";
 
 import { useReducer, useState } from "react";
-import {  MdDelete } from 'react-icons/md';
-import toast,{ Toaster } from 'react-hot-toast';
+import { MdDelete } from "react-icons/md";
+import toast, { Toaster } from "react-hot-toast";
 
 const intialState = [];
 
@@ -11,7 +11,7 @@ const reducer = (state, action) => {
     case "add":
       return [...state, action.payload];
     case "delete":
-       return(state.filter((item,i)=> i !==action.payload))
+      return state.filter((item, i) => i !== action.payload);
     default:
       return state;
   }
@@ -24,20 +24,20 @@ export default function App() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!val) {
-      toast("Input Feild Is Requred !")
+      toast("Input Feild Is Requred !");
       return;
     }
     dispach({ type: "add", payload: val });
     setVal("");
   };
 
-  const deletHandler=(index)=>{
-    dispach({type:'delete',payload:index})
-  }
+  const deletHandler = (index) => {
+    dispach({ type: "delete", payload: index });
+  };
 
   return (
     <div className="App">
-      <h1>Welcome To Todo App</h1>
+      <h1>Welcome To Todo App !!</h1>
       <form onSubmit={submitHandler}>
         <input
           type="text"
@@ -53,7 +53,7 @@ export default function App() {
         {state.map((item, i) => (
           <li key={i}>
             {item}
-            <MdDelete onClick={()=>deletHandler(i)} className='val'/>
+            <MdDelete onClick={() => deletHandler(i)} className="val" />
           </li>
         ))}
       </ul>
