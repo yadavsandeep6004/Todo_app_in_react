@@ -37,7 +37,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Welcome To Todo App !!</h1>
+      <h1>Welcome To Todo App</h1>
       <form onSubmit={submitHandler}>
         <input
           type="text"
